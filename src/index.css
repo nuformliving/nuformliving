@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 20% 95%;
+    --foreground: 220 15% 8%;
+    --card: 40 20% 95%;
+    --card-foreground: 220 15% 8%;
+    --popover: 40 20% 95%;
+    --popover-foreground: 220 15% 8%;
+    --primary: 220 15% 8%;
+    --primary-foreground: 40 20% 95%;
+    --secondary: 220 10% 46%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 40 15% 90%;
+    --muted-foreground: 220 8% 45%;
+    --accent: 25 35% 67%;
+    --accent-foreground: 220 15% 8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 25 35% 67%;
+    --radius: 1.375rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-[#F4F2EE] text-[#111216] antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Typography */
+.font-heading {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Headline Styles */
+.headline-xl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(44px, 5vw, 76px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.headline-lg {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(34px, 3.6vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+}
+
+.headline-md {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Mono Label */
+.mono-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+}
+
+/* Body Text */
+.body-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.body-text-lg {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Accent Color */
+.text-accent {
+  color: #C8A48C;
+}
+
+.bg-accent {
+  background-color: #C8A48C;
+}
+
+/* Background Colors */
+.bg-primary {
+  background-color: #F4F2EE;
+}
+
+.bg-dark {
+  background-color: #0B0D10;
+}
+
+/* Card Styles */
+.card-rounded {
+  border-radius: 22px;
+}
+
+/* Button Styles */
+.btn-pill {
+  border-radius: 999px;
+}
+
+/* Grain Overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Section Base */
+.section-pinned {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.section-flowing {
+  position: relative;
+  width: 100%;
+}
+
+/* Background Image */
+.bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  width: min(1200px, 88vw);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Navigation */
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 24px 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.nav-fixed.scrolled {
+  background-color: rgba(244, 242, 238, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+/* Link Underline Animation */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Card Shadow */
+.card-shadow {
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.10);
+}
+
+/* Smooth transitions for all animated elements */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Selection */
+::selection {
+  background-color: #C8A48C;
+  color: #111216;
+}
